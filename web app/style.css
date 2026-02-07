@@ -1,0 +1,186 @@
+/* --- VARIABILI E BASE --- */
+:root {
+    /* Colori estratti dal gradiente di sfondo per massima armonia */
+    --primary: #818cf8;           /* Lilla/Indaco armonioso */
+    --primary-hover: #6366f1;     /* Viola più profondo */
+    --bg-gradient: linear-gradient(135deg, #e0e7ff 0%, #f3e8ff 100%);
+    --card-bg: rgba(255, 255, 255, 0.88);
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --ai-bubble: #f1f5f9;
+}
+
+body {
+    /* Inter per i testi piccoli, Fredoka verrà usato per titoli e bottoni */
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg-gradient);
+    background-attachment: fixed;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: var(--text-main);
+}
+
+.container {
+    max-width: 480px;
+    width: 100%;
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* --- TITOLO (Morbido e Grosso) --- */
+h1 { 
+    font-family: 'Fredoka', sans-serif;
+    font-size: 2.6rem; /* Ingrandito */
+    font-weight: 700;
+    color: #4f46e5;
+    text-align: center; 
+    margin-bottom: 5px; 
+    letter-spacing: -0.01em;
+}
+
+.subtitle { 
+    text-align: center; 
+    color: var(--text-muted); 
+    margin-bottom: 30px; 
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* --- CARDS (Glassmorphism) --- */
+.card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 30px;
+    border-radius: 28px; /* Più arrotondato */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+}
+
+.hidden { display: none; }
+
+/* --- INPUTS --- */
+.input-group { margin-bottom: 24px; }
+
+label { 
+    display: block; 
+    font-weight: 600; 
+    margin-bottom: 10px; 
+    color: #475569;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+input[type="number"], input[type="text"] {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #e2e8f0;
+    border-radius: 15px;
+    font-size: 1rem;
+    background: white;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+
+input[type="number"]:focus, input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(129, 140, 248, 0.2);
+}
+
+/* Slider Custom */
+input[type="range"] {
+    width: 100%;
+    accent-color: var(--primary);
+}
+
+/* --- BOTTONI (Abbinati allo sfondo e Morbidi) --- */
+button {
+    font-family: 'Fredoka', sans-serif;
+    width: 100%;
+    padding: 16px;
+    background: var(--primary); /* Colore armonizzato */
+    color: white;
+    border: none;
+    border-radius: 20px; /* Molto arrotondato */
+    font-size: 1.15rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 14px rgba(129, 140, 248, 0.4);
+}
+
+button:hover {
+    background: var(--primary-hover);
+    transform: scale(1.03); /* Effetto morbido al passaggio */
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+}
+
+/* --- CHAT E RISULTATI --- */
+.quote {
+    background: #f8fafc;
+    padding: 15px;
+    border-radius: 15px;
+    font-style: italic;
+    color: var(--primary-hover);
+    text-align: center;
+    margin-top: 20px;
+    border: 1px dashed #cbd5e0;
+}
+
+#chat-window {
+    height: 280px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    margin-bottom: 15px;
+    border: 1px solid #f1f5f9;
+}
+
+.user-msg {
+    align-self: flex-end;
+    background: var(--primary);
+    color: white;
+    padding: 12px 18px;
+    border-radius: 20px 20px 4px 20px;
+    font-size: 0.95rem;
+}
+
+.ai-msg {
+    align-self: flex-start;
+    background: var(--ai-bubble);
+    padding: 12px 18px;
+    border-radius: 20px 20px 20px 4px;
+    font-size: 0.95rem;
+    animation: slideUp 0.4s ease-out;
+}
+
+.chat-input-area {
+    display: flex;
+    gap: 10px;
+}
+
+#sendBtn {
+    width: 90px;
+    padding: 10px;
+    font-size: 0.9rem;
+}
+
+/* --- ANIMAZIONI --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
